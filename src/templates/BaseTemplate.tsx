@@ -2,7 +2,6 @@
 
 import { Transition, TransitionChild } from '@headlessui/react'
 import { PanelLeftClose, PanelLeftOpen, Search } from 'lucide-react'
-import { useIntersectionObserver } from 'usehooks-ts'
 
 import { Button } from '@/components/ui/button'
 import { useSidebar } from '@/hooks/useSidebar'
@@ -15,19 +14,14 @@ const BaseTemplate = (props: {
     sideBar?: React.ReactNode
     children: React.ReactNode
 }) => {
-    const { isIntersecting, ref } = useIntersectionObserver()
     const { openSidebar, toggleOpenSidebar, isDesktop } = useSidebar()
 
     const OpenSideBarIcon = openSidebar ? PanelLeftClose : PanelLeftOpen
 
-    const baseSidebarClassName =
-        'bg-primary-foreground text-primary p-2 border-r min-w-64'
-    const baseSidebarUlClassName = 'gap-2 space-y-2'
-
     return (
         <div className="w-full">
             <div className="mx-auto min-h-screen">
-                <header ref={ref} className="border-b p-2 text-center">
+                <header className="border-b p-2 text-center">
                     <div className="flex justify-between">
                         <nav>
                             <ul className="flex flex-wrap gap-x-2 text-xl">
@@ -86,27 +80,18 @@ const BaseTemplate = (props: {
                             leaveFrom="translate-x-0 opacity-95"
                             leaveTo="-translate-x-full opacity-0"
                         >
-                            <aside className={cn(baseSidebarClassName)}>
+                            <aside
+                                className={cn(
+                                    'bg-primary-foreground text-primary p-2 border-r min-w-64'
+                                )}
+                            >
                                 <ul
                                     className={cn(
-                                        baseSidebarUlClassName,
-                                        !isIntersecting && 'invisible'
+                                        'gap-2 space-y-2 sticky top-2'
                                     )}
                                 >
                                     {props.sideBar}
                                 </ul>
-                                <div
-                                    className={cn(
-                                        baseSidebarClassName,
-                                        isIntersecting && 'hidden',
-                                        !isIntersecting &&
-                                            'fixed left-0 inset-y-0'
-                                    )}
-                                >
-                                    <ul className={cn(baseSidebarUlClassName)}>
-                                        {props.sideBar}
-                                    </ul>
-                                </div>
                             </aside>
                         </TransitionChild>
                     </Transition>

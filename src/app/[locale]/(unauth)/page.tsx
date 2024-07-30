@@ -23,6 +23,8 @@ export default async function Index(props: { params: { locale: string } }) {
     const movies = await filmsApi.getFilmsByCategory('phim-le')
     const tvSeries = await filmsApi.getFilmsByCategory('phim-bo')
 
+    const baseLinkClassName = 'xl:w-1/8 w-1/2 sm:w-1/3 md:w-1/4 lg:w-1/6'
+
     return (
         <>
             <h3>Latest Films</h3>
@@ -31,7 +33,7 @@ export default async function Index(props: { params: { locale: string } }) {
                     <Link
                         key={film.slug}
                         href={`/watch/${film.slug}`}
-                        className="w-1/6"
+                        className={baseLinkClassName}
                     >
                         <ThumbCard movie={film} />
                     </Link>
@@ -43,7 +45,7 @@ export default async function Index(props: { params: { locale: string } }) {
                     <Link
                         key={film.slug}
                         href={`/watch/${film.slug}`}
-                        className="sm:1/4 w-1/2 md:w-1/6 2xl:w-[12.5%]"
+                        className={baseLinkClassName}
                     >
                         <ThumbCard movie={film} />
                     </Link>
@@ -55,7 +57,7 @@ export default async function Index(props: { params: { locale: string } }) {
                     <Link
                         key={film.slug}
                         href={`/watch/${film.slug}`}
-                        className="w-1/6"
+                        className={baseLinkClassName}
                     >
                         <ThumbCard movie={film} />
                     </Link>

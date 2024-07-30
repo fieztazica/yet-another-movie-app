@@ -12,7 +12,8 @@ type Cat = {
 }
 
 type StatusResponse = {
-    status: boolean
+    status: 'success' | 'error'
+    message?: string
 }
 
 type PaginateResponse<T = unknown> = StatusResponse & {

@@ -21,8 +21,11 @@ class FilmsApi {
             this.apiUrl
         )
         const response = await fetch(url, init)
-        const data = await response.json()
-        return data as T
+        const data = (await response.json()) as T
+        if ((data as StatusResponse).status === 'error') {
+            throw new Error((data as StatusResponse).message)
+        }
+        return data
     }
 
     getLatestFilms(page: number = 1) {
