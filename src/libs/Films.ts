@@ -16,35 +16,33 @@ class FilmsApi {
         plural: boolean = true,
         init?: RequestInit
     ) {
-        const response = await fetch(
-            new URL(
-                `/${plural ? this.plural : this.singular}/${path}`,
-                this.apiUrl
-            ),
-            init
+        const url = new URL(
+            `api/${plural ? this.plural : this.singular}/${path}`,
+            this.apiUrl
         )
+        const response = await fetch(url, init)
         const data = await response.json()
         return data as T
     }
 
     getLatestFilms(page: number = 1) {
-        return this.fetcher(`/phim-moi-cap-nhat?page=${page}`)
+        return this.fetcher(`phim-moi-cap-nhat?page=${page}`)
     }
 
     getFilmsByCategory(category: string, page: number = 1) {
-        return this.fetcher(`/danh-sach/${category}?page=${page}`)
+        return this.fetcher(`danh-sach/${category}?page=${page}`)
     }
 
     getFilmsByGenre(type: string, page: number = 1) {
-        return this.fetcher(`/the-loai/${type}?page=${page}`)
+        return this.fetcher(`the-loai/${type}?page=${page}`)
     }
 
     getFilmsByNation(nation: string, page: number = 1) {
-        return this.fetcher(`/quoc-gia/${nation}?page=${page}`)
+        return this.fetcher(`quoc-gia/${nation}?page=${page}`)
     }
 
     getFilmsByReleaseYear(year: string, page: number = 1) {
-        return this.fetcher(`/nam-phat-hanh/${year}?page=${page}`)
+        return this.fetcher(`nam-phat-hanh/${year}?page=${page}`)
     }
 
     getFilmBySlug(slug: string) {
@@ -52,7 +50,7 @@ class FilmsApi {
     }
 
     search(keyword: string) {
-        return this.fetcher(`/search?keyword=${keyword}`)
+        return this.fetcher(`search?keyword=${keyword}`)
     }
 }
 
