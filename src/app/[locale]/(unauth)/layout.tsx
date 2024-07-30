@@ -1,9 +1,12 @@
+import { Antenna, Flame, House, Projector, Tv } from 'lucide-react'
 import Link from 'next/link'
 import { useTranslations } from 'next-intl'
 import { unstable_setRequestLocale } from 'next-intl/server'
 
 import LocaleSwitcher from '@/components/LocaleSwitcher'
 import Logo from '@/components/Logo'
+import { ThemeSwitcher } from '@/components/ThemeSwitcher'
+import { Button } from '@/components/ui/button'
 import { BaseTemplate } from '@/templates/BaseTemplate'
 
 export default function Layout(props: {
@@ -16,11 +19,8 @@ export default function Layout(props: {
     return (
         <BaseTemplate
             leftNav={
-                <li>
-                    <Link
-                        href="/"
-                        className="border-none text-gray-700 hover:text-gray-900"
-                    >
+                <li className="text-center">
+                    <Link href="/" className="border-none">
                         <Logo />
                     </Link>
                 </li>
@@ -28,31 +28,74 @@ export default function Layout(props: {
             rightNav={
                 <>
                     <li>
-                        <Link
-                            href="/"
-                            className="border-none text-gray-700 hover:text-gray-900"
-                        >
-                            {t('tv_shows')}
-                        </Link>
-                    </li>
-                    <li>
-                        <Link
-                            href="/"
-                            className="border-none text-gray-700 hover:text-gray-900"
-                        >
-                            {t('movies')}
-                        </Link>
-                    </li>
-                    <li>
-                        <Link
-                            href="/"
-                            className="border-none text-gray-700 hover:text-gray-900"
-                        >
-                            {t('tv_series')}
-                        </Link>
+                        <ThemeSwitcher />
                     </li>
                     <li>
                         <LocaleSwitcher />
+                    </li>
+                </>
+            }
+            sideBar={
+                <>
+                    <li>
+                        <Button
+                            asChild
+                            variant="secondary"
+                            className="w-full justify-start"
+                        >
+                            <Link href="/" className="border-none">
+                                <House className="mr-2 size-4" />
+                                {t('home_link')}
+                            </Link>
+                        </Button>
+                    </li>
+                    <li>
+                        <Button
+                            asChild
+                            variant="secondary"
+                            className="w-full justify-start"
+                        >
+                            <Link href="/" className="border-none">
+                                <Flame className="mr-2 size-4" />
+                                {t('now_showing')}
+                            </Link>
+                        </Button>
+                    </li>
+                    <li>
+                        <Button
+                            asChild
+                            variant="secondary"
+                            className="w-full justify-start"
+                        >
+                            <Link href="/" className="border-none">
+                                <Antenna className="mr-2 size-4" />
+                                {t('tv_shows')}
+                            </Link>
+                        </Button>
+                    </li>
+                    <li>
+                        <Button
+                            asChild
+                            variant="secondary"
+                            className="w-full justify-start"
+                        >
+                            <Link href="/" className="border-none">
+                                <Projector className="mr-2 size-4" />
+                                {t('movies')}
+                            </Link>
+                        </Button>
+                    </li>
+                    <li>
+                        <Button
+                            asChild
+                            variant="secondary"
+                            className="w-full justify-start"
+                        >
+                            <Link href="/" className="border-none">
+                                <Tv className="mr-2 size-4" />
+                                {t('tv_series')}
+                            </Link>
+                        </Button>
                     </li>
                 </>
             }

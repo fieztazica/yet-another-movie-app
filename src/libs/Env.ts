@@ -7,6 +7,7 @@ export const Env = createEnv({
         CLERK_SECRET_KEY: z.string().min(1),
         DATABASE_URL: z.string().optional(),
         LOGTAIL_SOURCE_TOKEN: z.string().optional(),
+        API_URL: z.string().url(),
     },
     client: {
         NEXT_PUBLIC_APP_URL: z.string().optional(),
@@ -18,6 +19,7 @@ export const Env = createEnv({
     },
     // You need to destructure all the keys manually
     runtimeEnv: {
+        API_URL: process.env.API_URL,
         CLERK_SECRET_KEY: process.env.CLERK_SECRET_KEY,
         DATABASE_URL: process.env.DATABASE_URL,
         LOGTAIL_SOURCE_TOKEN: process.env.LOGTAIL_SOURCE_TOKEN,

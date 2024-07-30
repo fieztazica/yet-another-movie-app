@@ -15,5 +15,14 @@ export async function generateMetadata(props: { params: { locale: string } }) {
 export default function Index(props: { params: { locale: string } }) {
     unstable_setRequestLocale(props.params.locale)
 
-    return <p>Hello world</p>
+    return (
+        <>
+            <p>Hello world</p>
+            <div className="min-h-96">5</div>
+            <div className="min-h-96">4</div>
+            <div className="min-h-96">3</div>
+            <div className="min-h-96">2</div>
+            <div className="min-h-96">alo</div>
+        </>
+    )
 }

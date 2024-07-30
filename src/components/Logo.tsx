@@ -2,7 +2,7 @@ import React from 'react'
 
 function Logo() {
     return (
-        <div className="text-2xl font-bold tracking-wide text-[#2c3e50] drop-shadow">
+        <div className="text-lg font-bold tracking-wide underline decoration-4 drop-shadow md:text-2xl">
             YAMA
         </div>
     )

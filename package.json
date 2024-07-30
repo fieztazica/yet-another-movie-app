@@ -69,6 +69,7 @@
         "drizzle-orm": "^0.32.0",
         "embla-carousel-react": "^8.1.7",
         "input-otp": "^1.2.4",
+        "jotai": "^2.9.1",
         "lucide-react": "^0.417.0",
         "next": "^14.2.5",
         "next-intl": "^3.17.2",
@@ -86,6 +87,7 @@
         "sonner": "^1.5.0",
         "tailwind-merge": "^2.4.0",
         "tailwindcss-animate": "^1.0.7",
+        "usehooks-ts": "^3.1.0",
         "vaul": "^0.9.1",
         "zod": "^3.23.8"
     },
