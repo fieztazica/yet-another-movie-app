@@ -33,6 +33,13 @@ export default function About(props: { params: { locale: string } }) {
                 </a>
             </div>
 
+            <a
+                href="https://creativedesignsguru.com"
+                className="text-blue-700 hover:border-b-2 hover:border-blue-700"
+            >
+                CreativeDesignsGuru
+            </a>
+
             <a href="https://l.crowdin.com/next-js" target="_blank">
                 <Image
                     className="mx-auto mt-2"

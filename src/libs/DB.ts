@@ -8,8 +8,7 @@ import { PHASE_PRODUCTION_BUILD } from 'next/dist/shared/lib/constants'
 import path from 'path'
 import { Client } from 'pg'
 
-import * as schema from '@/models/Schema'
-
+// import * as schema from '@/models/Schema'
 import { Env } from './Env'
 
 let client
@@ -21,7 +20,7 @@ if (process.env.NEXT_PHASE !== PHASE_PRODUCTION_BUILD && Env.DATABASE_URL) {
     })
     await client.connect()
 
-    drizzle = drizzlePg(client, { schema })
+    drizzle = drizzlePg(client, {})
     await migratePg(drizzle, {
         migrationsFolder: path.join(process.cwd(), 'migrations'),
     })
@@ -33,7 +32,7 @@ if (process.env.NEXT_PHASE !== PHASE_PRODUCTION_BUILD && Env.DATABASE_URL) {
         await global.client.waitReady
     }
 
-    drizzle = drizzlePglite(global.client, { schema })
+    drizzle = drizzlePglite(global.client, {})
     await migratePglite(drizzle, {
         migrationsFolder: path.join(process.cwd(), 'migrations'),
     })

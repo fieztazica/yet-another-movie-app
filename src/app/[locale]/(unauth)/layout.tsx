@@ -3,6 +3,7 @@ import { useTranslations } from 'next-intl'
 import { unstable_setRequestLocale } from 'next-intl/server'
 
 import LocaleSwitcher from '@/components/LocaleSwitcher'
+import Logo from '@/components/Logo'
 import { BaseTemplate } from '@/templates/BaseTemplate'
 
 export default function Layout(props: {
@@ -21,7 +22,7 @@ export default function Layout(props: {
                             href="/"
                             className="border-none text-gray-700 hover:text-gray-900"
                         >
-                            {t('home_link')}
+                            <Logo />
                         </Link>
                     </li>
                     <li>
@@ -30,22 +31,6 @@ export default function Layout(props: {
                             className="border-none text-gray-700 hover:text-gray-900"
                         >
                             {t('about_link')}
-                        </Link>
-                    </li>
-                    <li>
-                        <Link
-                            href="/guestbook/"
-                            className="border-none text-gray-700 hover:text-gray-900"
-                        >
-                            {t('guestbook_link')}
-                        </Link>
-                    </li>
-                    <li>
-                        <Link
-                            href="/portfolio/"
-                            className="border-none text-gray-700 hover:text-gray-900"
-                        >
-                            {t('portfolio_link')}
                         </Link>
                     </li>
                     <li>
