@@ -6,8 +6,8 @@ const BaseTemplate = (props: {
     children: React.ReactNode
 }) => {
     return (
-        <div className="w-full px-1 text-gray-700 antialiased">
-            <div className="mx-auto min-h-dvh px-2">
+        <div className="w-full text-gray-700">
+            <div className="mx-auto min-h-dvh">
                 <header className="fixed inset-x-0 top-0 border-b border-gray-300 text-center">
                     <div className="flex justify-between">
                         <nav>
@@ -27,7 +27,13 @@ const BaseTemplate = (props: {
                 <main>{props.children}</main>
 
                 <footer className="border-t border-gray-300 py-8 text-center text-sm">
-                    © Copyright {new Date().getFullYear()} {AppConfig.name}.
+                    © Copyright {new Date().getFullYear()} {AppConfig.name}.{' '}
+                    <a
+                        className="border-none text-gray-700 hover:text-gray-900"
+                        href="https://github.com/ixartz/Next-js-Boilerplate"
+                    >
+                        GitHub
+                    </a>
                 </footer>
             </div>
         </div>

@@ -16,53 +16,41 @@ export default function Layout(props: {
     return (
         <BaseTemplate
             leftNav={
+                <li>
+                    <Link
+                        href="/"
+                        className="border-none text-gray-700 hover:text-gray-900"
+                    >
+                        <Logo />
+                    </Link>
+                </li>
+            }
+            rightNav={
                 <>
                     <li>
                         <Link
                             href="/"
                             className="border-none text-gray-700 hover:text-gray-900"
                         >
-                            <Logo />
+                            {t('tv_shows')}
                         </Link>
                     </li>
                     <li>
                         <Link
-                            href="/about/"
+                            href="/"
                             className="border-none text-gray-700 hover:text-gray-900"
                         >
-                            {t('about_link')}
+                            {t('movies')}
                         </Link>
                     </li>
-                    <li>
-                        <a
-                            className="border-none text-gray-700 hover:text-gray-900"
-                            href="https://github.com/ixartz/Next-js-Boilerplate"
-                        >
-                            GitHub
-                        </a>
-                    </li>
-                </>
-            }
-            rightNav={
-                <>
                     <li>
                         <Link
-                            href="/sign-in/"
+                            href="/"
                             className="border-none text-gray-700 hover:text-gray-900"
                         >
-                            {t('sign_in_link')}
+                            {t('tv_series')}
                         </Link>
                     </li>
-
-                    <li>
-                        <Link
-                            href="/sign-up/"
-                            className="border-none text-gray-700 hover:text-gray-900"
-                        >
-                            {t('sign_up_link')}
-                        </Link>
-                    </li>
-
                     <li>
                         <LocaleSwitcher />
                     </li>

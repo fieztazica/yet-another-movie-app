@@ -1,10 +1,18 @@
 import '@/styles/global.css'
 
 import type { Metadata } from 'next'
+import { Inter as FontSans } from 'next/font/google'
 import { NextIntlClientProvider, useMessages } from 'next-intl'
 import { unstable_setRequestLocale } from 'next-intl/server'
 
+import { ThemeProvider } from '@/components/ThemeProvider'
+import { cn } from '@/utils'
 import { AppConfig } from '@/utils/AppConfig'
+
+const fontSans = FontSans({
+    subsets: ['latin'],
+    variable: '--font-sans',
+})
 
 export const metadata: Metadata = {
     icons: [
@@ -46,13 +54,25 @@ export default function RootLayout(props: {
 
     return (
         <html lang={props.params.locale}>
-            <body>
-                <NextIntlClientProvider
-                    locale={props.params.locale}
-                    messages={messages}
+            <body
+                className={cn(
+                    'min-h-dvh bg-background font-sans antialiased',
+                    fontSans.variable
+                )}
+            >
+                <ThemeProvider
+                    attribute="class"
+                    defaultTheme="system"
+                    enableSystem
+                    disableTransitionOnChange
                 >
-                    {props.children}
-                </NextIntlClientProvider>
+                    <NextIntlClientProvider
+                        locale={props.params.locale}
+                        messages={messages}
+                    >
+                        {props.children}
+                    </NextIntlClientProvider>
+                </ThemeProvider>
             </body>
         </html>
     )

@@ -2,6 +2,9 @@
     "RootLayout": {
         "home_link": "Home",
         "about_link": "About",
+        "tv_shows": "TV Shows",
+        "movies": "Movies",
+        "tv_series": "TV Series",
         "sign_in_link": "Sign in",
         "sign_up_link": "Sign up"
     },
