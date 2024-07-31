@@ -38,10 +38,6 @@ export function SearchDialog() {
     }, [])
 
     React.useEffect(() => {
-        if (!keyword) {
-            return setResults([])
-        }
-
         ;(async () => {
             try {
                 setLoading(true)
