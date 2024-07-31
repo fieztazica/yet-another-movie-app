@@ -84,7 +84,7 @@ export function SearchDialog() {
                     {results.map((result) => (
                         <CommandItem
                             key={result.id}
-                            value={result.name}
+                            value={`${result.name} (${result.original_name})`}
                             onSelect={toggleOpen}
                         >
                             <Link href={`/watch/${result.slug}`}>
