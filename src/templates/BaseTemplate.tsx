@@ -1,8 +1,9 @@
 'use client'
 
 import { Transition, TransitionChild } from '@headlessui/react'
-import { PanelLeftClose, PanelLeftOpen, Search } from 'lucide-react'
+import { PanelLeftClose, PanelLeftOpen } from 'lucide-react'
 
+import { SearchDialog } from '@/components/SearchDialog'
 import { Button } from '@/components/ui/button'
 import { useSidebar } from '@/hooks/useSidebar'
 import { cn } from '@/utils'
@@ -41,29 +42,7 @@ const BaseTemplate = (props: {
                         <nav>
                             <ul className="flex flex-wrap gap-x-2 text-xl">
                                 <div className={cn(isDesktop && 'min-w-64')}>
-                                    <Button
-                                        variant="outline"
-                                        className={cn(
-                                            isDesktop && 'w-full justify-start'
-                                        )}
-                                        size={isDesktop ? 'default' : 'icon'}
-                                    >
-                                        <Search
-                                            className={cn(
-                                                'size-4',
-                                                isDesktop && 'mr-2'
-                                            )}
-                                        />
-                                        <span
-                                            className={cn(
-                                                isDesktop
-                                                    ? 'not-sr-only'
-                                                    : 'sr-only'
-                                            )}
-                                        >
-                                            Search
-                                        </span>
-                                    </Button>
+                                    <SearchDialog />
                                 </div>
                                 {props.rightNav}
                             </ul>

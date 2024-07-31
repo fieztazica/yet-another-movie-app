@@ -15,7 +15,12 @@
     "server_selection": "Select a server",
     "episode_selection": "Select an episode",
     "watching": "You are watching",
-    "back": "Back"
+    "back": "Back",
+    "wont_load": {
+      "head": "If the player wont load, use this ",
+      "link": "link",
+      "tail": " instead."
+    }
   },
   "BaseTemplate": {
     "description": "Yet Another Movie App",

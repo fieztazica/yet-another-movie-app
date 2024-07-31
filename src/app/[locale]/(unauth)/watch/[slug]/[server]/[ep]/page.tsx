@@ -40,15 +40,15 @@ async function WatchEpisodePage({ params }: Props) {
                 <Player film={film} />
             </div>
             <div className="mb-2 mt-4 px-4">
-                If the player wont load, use this{' '}
+                {t('wont_load.head')}
                 <a
                     className="underline hover:text-muted"
                     href={film?.episodes?.[0]?.items?.[0]?.embed}
                     target="_blank"
                 >
-                    link
-                </a>{' '}
-                instead.
+                    {t('wont_load.link')}
+                </a>
+                {t('wont_load.tail')}
             </div>
         </>
     )
