@@ -1,46 +1,59 @@
 {
-    "RootLayout": {
-        "home_link": "Trang chủ",
-        "about_link": "Về chúng tôi",
-        "tv_shows": "TV Shows",
-        "movies": "Movies",
-        "tv_series": "TV Series",
-        "now_showing": "Now Showing",
-        "sign_in_link": "Đăng nhập",
-        "sign_up_link": "Đăng ký"
-    },
-    "BaseTemplate": {
-        "description": "Starter code for your Nextjs Boilerplate with Tailwind CSS",
-        "made_with": "Made with"
-    },
-    "Index": {
-        "meta_title": "Next.js Boilerplate Presentation",
-        "meta_description": "Next js Boilerplate is the perfect starter code for your project. Build your React application with the Next.js framework."
-    },
-    "About": {
-        "meta_title": "Về chúng tôi",
-        "meta_description": "About page description",
-        "about_paragraph": "Welcome to our About page! We are a team of passionate individuals dedicated to creating amazing software.",
-        "translation_powered_by": "Translation powered by"
-    },
-    "SignIn": {
-        "meta_title": "Đăng nhập",
-        "meta_description": "Seamlessly sign in to your account with our user-friendly login process."
-    },
-    "SignUp": {
-        "meta_title": "Đăng ký",
-        "meta_description": "Effortlessly create an account through our intuitive sign-up process."
-    },
-    "Dashboard": {
-        "meta_title": "Bảng điều khiển",
-        "hello_message": "Hello {email}!"
-    },
-    "UserProfile": {
-        "meta_title": "Hồ sơ người dùng"
-    },
-    "DashboardLayout": {
-        "dashboard_link": "Bảng điều khiển",
-        "user_profile_link": "Quản lý tài khoản",
-        "sign_out": "Đăng xuất"
+  "RootLayout": {
+    "home_link": "Trang chủ",
+    "about_link": "Về chúng tôi",
+    "tv_shows": "TV Shows",
+    "movies": "Movies",
+    "tv_series": "TV Series",
+    "now_showing": "Now Showing",
+    "sign_in_link": "Đăng nhập",
+    "sign_up_link": "Đăng ký"
+  },
+  "Watch": {
+    "description_title": "Description",
+    "episode": "Episode",
+    "server_selection": "Select a server",
+    "episode_selection": "Select an episode",
+    "watching": "You are watching",
+    "back": "Back",
+    "wont_load": {
+      "head": "If the player wont load, use this ",
+      "link": "link",
+      "tail": " instead."
     }
+  },
+  "BaseTemplate": {
+    "description": "Starter code for your Nextjs Boilerplate with Tailwind CSS",
+    "made_with": "Made with"
+  },
+  "Index": {
+    "meta_title": "Next.js Boilerplate Presentation",
+    "meta_description": "Next js Boilerplate is the perfect starter code for your project. Build your React application with the Next.js framework."
+  },
+  "About": {
+    "meta_title": "Về chúng tôi",
+    "meta_description": "About page description",
+    "about_paragraph": "Welcome to our About page! We are a team of passionate individuals dedicated to creating amazing software.",
+    "translation_powered_by": "Translation powered by"
+  },
+  "SignIn": {
+    "meta_title": "Đăng nhập",
+    "meta_description": "Seamlessly sign in to your account with our user-friendly login process."
+  },
+  "SignUp": {
+    "meta_title": "Đăng ký",
+    "meta_description": "Effortlessly create an account through our intuitive sign-up process."
+  },
+  "Dashboard": {
+    "meta_title": "Bảng điều khiển",
+    "hello_message": "Hello {email}!"
+  },
+  "UserProfile": {
+    "meta_title": "Hồ sơ người dùng"
+  },
+  "DashboardLayout": {
+    "dashboard_link": "Bảng điều khiển",
+    "user_profile_link": "Quản lý tài khoản",
+    "sign_out": "Đăng xuất"
+  }
 }
