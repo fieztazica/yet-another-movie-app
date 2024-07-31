@@ -19,3 +19,10 @@ export const getI18nPath = (url: string, locale: string) => {
 
     return `/${locale}${url}`
 }
+
+export const convertToSlug = (str: string) => {
+    return str
+        .toLowerCase()
+        .replace(/ /g, '-')
+        .replace(/[^\w-]+/g, '')
+}

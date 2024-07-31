@@ -1,67 +1,52 @@
-import { notFound } from 'next/navigation'
 import React from 'react'
 
-import { Button } from '@/components/ui/button'
-import filmsApi from '@/libs/Films'
+import { getFilm } from '../actions'
 
 type Props = {
-    params: { slug: string }
-}
-
-async function getFilm(slug: string) {
-    try {
-        const res = await filmsApi.getFilmBySlug(slug)
-        return res.movie
-    } catch (error) {
-        return notFound()
-    }
+    params: { slug: string; locale: string }
 }
 
 async function Watch({ params }: Props) {
     const film = await getFilm(params.slug)
+
     return (
-        <div>
-            <div>
-                <img src={film.poster_url} alt={film.original_name} />
-            </div>
-            <h1 className="text-2xl font-black">
-                {film.name} ({film.original_name})
-            </h1>
-            <div>{film.description}</div>
-            <div>Current: {film.current_episode}</div>
-            <div>
-                {film.episodes?.map((episode) => (
-                    <div key={episode.server_name}>
-                        <div>Server: {episode.server_name}</div>
-                        <div className="flex flex-wrap gap-2">
-                            {episode.items.map((item) => (
-                                <div
-                                    key={item.slug}
-                                    className="w-auto rounded bg-primary p-2"
-                                >
-                                    <div className="text-primary-foreground">
-                                        {item.name}
-                                    </div>
-                                    <div className="gap-2 space-x-2">
-                                        <Button asChild variant="outline">
-                                            <a
-                                                target="_blank"
-                                                href={item.embed}
-                                            >
-                                                Embed
-                                            </a>
-                                        </Button>
-                                        <Button asChild variant="outline">
-                                            <a target="_blank" href={item.m3u8}>
-                                                M3U8
-                                            </a>
-                                        </Button>
-                                    </div>
-                                </div>
-                            ))}
-                        </div>
+        <div className="relative max-h-[512px] min-h-24 w-full text-white md:min-h-96">
+            <img
+                src={film.poster_url}
+                alt={film.name}
+                className="size-full max-h-[512px] object-cover object-center"
+            />
+            <div className="absolute inset-0 size-full" />
+            <div className="absolute inset-x-0 bottom-0 flex min-h-16 flex-col justify-end bg-gradient-to-b from-transparent to-black/80 px-4 py-2 md:min-h-48">
+                <h1 className="mb-4 text-2xl font-bold drop-shadow md:text-4xl">
+                    {film.name} ({film.original_name})
+                </h1>
+                <div className="text-sm font-medium">
+                    <div>
+                        {[
+                            film.language,
+                            film.time,
+                            film.director,
+                            film.casts,
+                        ].join(' • ')}
                     </div>
-                ))}
+                    <div>
+                        {[
+                            film.category?.[4]?.list
+                                .map((v) => v.name)
+                                .join(', '),
+                            film.category?.[3]?.list
+                                .map((v) => v.name)
+                                .join(', '),
+                            film.category?.[2]?.list
+                                .map((v) => v.name)
+                                .join(', '),
+                            film.category?.[1]?.list
+                                .map((v) => v.name)
+                                .join(', '),
+                        ].join(' • ')}
+                    </div>
+                </div>
             </div>
         </div>
     )

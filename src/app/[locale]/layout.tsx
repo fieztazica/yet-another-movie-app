@@ -15,6 +15,10 @@ const fontSans = FontSans({
 })
 
 export const metadata: Metadata = {
+    title: {
+        template: `${AppConfig.name} | %s`,
+        default: AppConfig.name,
+    },
     icons: [
         {
             rel: 'apple-touch-icon',

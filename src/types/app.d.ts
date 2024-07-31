@@ -10,11 +10,11 @@ type Movie = {
     description: string
     total_episodes: number
     current_episode: string
-    time?: null
+    time?: string | null
     quality: string
     language: string
-    director?: null
-    casts?: null
+    director?: string | null
+    casts?: string | null
     category?: { [key: string]: Category }
     episodes?: Episode[]
 }
