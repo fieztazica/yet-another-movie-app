@@ -1,5 +1,8 @@
+import { notFound } from 'next/navigation'
 import { getTranslations } from 'next-intl/server'
 import React from 'react'
+
+import { convertToSlug } from '@/utils/Helpers'
 
 import { getFilm } from '../../../actions'
 import Player from './player'
@@ -15,21 +18,19 @@ async function WatchEpisodePage({ params }: Props) {
         namespace: 'Watch',
     })
 
-    // const serverEpisode = film?.episodes?.find(
-    //     (episode) => convertToSlug(episode.server_name) === params.server
-    // )
+    const serverEpisode = film?.episodes?.find(
+        (episode) => convertToSlug(episode.server_name) === params.server
+    )
 
-    // if (!serverEpisode) {
-    //     return notFound()
-    // }
+    if (!serverEpisode) {
+        return notFound()
+    }
 
-    // const item = serverEpisode.items.find(
-    //     (i) => convertToSlug(i.name) === params.ep
-    // )
+    const item = serverEpisode.items.find((i) => i.slug === params.ep)
 
-    // if (!item) {
-    //     return notFound()
-    // }
+    if (!item) {
+        return notFound()
+    }
 
     return (
         <>
@@ -37,12 +38,12 @@ async function WatchEpisodePage({ params }: Props) {
                 {t('watching')} {film?.name} ({film?.original_name})
             </div>
             <div className="w-full">
-                <Player film={film} />
+                <Player item={item} />
             </div>
             <div className="mb-2 mt-4 px-4">
                 {t('wont_load.head')}
                 <a
-                    className="underline hover:text-muted"
+                    className="underline hover:text-primary"
                     href={film?.episodes?.[0]?.items?.[0]?.embed}
                     target="_blank"
                 >

@@ -1,3 +1,11 @@
+/* eslint-disable unused-imports/no-unused-vars */
+/* eslint-disable vars-on-top */
+/* eslint-disable no-empty */
+/* eslint-disable object-shorthand */
+/* eslint-disable func-names */
+/* eslint-disable no-var */
+/* eslint-disable simple-import-sort/imports */
+/* eslint-disable unused-imports/no-unused-imports */
 // @ts-nocheck
 /* eslint-disable import/no-extraneous-dependencies */
 /* eslint-disable no-unused-expressions */
@@ -10,7 +18,11 @@ import React from 'react'
 
 import VideoJS from '@/components/VideoJS'
 
-function Player({ film }: { film: Movie }) {
+type Props = {
+    item: Item
+}
+
+function Player({ item }: Props) {
     const playerRef = React.useRef(null)
 
     const videoJsOptions = {
@@ -20,7 +32,7 @@ function Player({ film }: { film: Movie }) {
         fluid: true,
         sources: [
             {
-                src: film?.episodes?.[0]?.items?.[0]?.m3u8,
+                src: item.m3u8,
                 type: 'application/x-mpegURL',
             },
         ],
