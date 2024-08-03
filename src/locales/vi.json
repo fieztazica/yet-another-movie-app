@@ -7,7 +7,8 @@
     "tv_series": "Phim bộ",
     "now_showing": "Phim đang chiếu",
     "sign_in_link": "Đăng nhập",
-    "sign_up_link": "Đăng ký"
+    "sign_up_link": "Đăng ký",
+    "search_link": "Search"
   },
   "Watch": {
     "description_title": "Mô tả",
@@ -20,6 +21,17 @@
       "head": "Nếu bộ phát không hoạt động, hãy dùng ",
       "link": "đường dẫn",
       "tail": " này."
+    }
+  },
+  "Search": {
+    "input_placeholder": "Search for TV Shows, Movies, etc...",
+    "no_results": "No results found",
+    "meta": {
+      "title_default": "Search",
+      "description_default": "Search for your favorite movies and TV shows on YAMA.",
+      "title_found": "{amount} movies found.",
+      "description_found": "{amount} movies found for {keyword}.",
+      "description_not_found": "No movies found for {keyword}."
     }
   },
   "BaseTemplate": {
