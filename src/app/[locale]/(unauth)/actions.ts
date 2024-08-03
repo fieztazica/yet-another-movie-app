@@ -2,9 +2,9 @@
 
 import filmsApi from '@/libs/Films'
 
-export async function makeSearch(keyword: string) {
+export async function makeSearch(keyword: string, page?: number) {
     try {
-        const films = await filmsApi.search(encodeURIComponent(keyword))
+        const films = await filmsApi.search(encodeURIComponent(keyword), page)
         if (!films?.items) {
             return []
         }

@@ -7,7 +7,8 @@
     "tv_series": "TV Series",
     "now_showing": "Now Showing",
     "sign_in_link": "Sign in",
-    "sign_up_link": "Sign up"
+    "sign_up_link": "Sign up",
+    "search_link": "Search"
   },
   "Watch": {
     "description_title": "Description",
@@ -22,12 +23,23 @@
       "tail": " instead."
     }
   },
+  "Search": {
+    "input_placeholder": "Search for TV Shows, Movies, etc...",
+    "no_results": "No results found",
+    "meta": {
+      "title_default": "Search",
+      "description_default": "Search for your favorite movies and TV shows on YAMA.",
+      "title_found": "{amount} movies found.",
+      "description_found": "{amount} movies found for {keyword}.",
+      "description_not_found": "No movies found for {keyword}."
+    }
+  },
   "BaseTemplate": {
     "description": "Yet Another Movie App",
     "made_with": "Made with"
   },
   "Index": {
-    "meta_title": "YAMA - Yet Another Movie App",
+    "meta_title": "Yet Another Movie App",
     "meta_description": "YAMA is a movie web app that provides an enormous amount of content to watch."
   },
   "About": {

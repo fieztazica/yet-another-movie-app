@@ -52,8 +52,8 @@ class FilmsApi {
         return this.fetcher<FilmResponse>(slug, false)
     }
 
-    search(keyword: string) {
-        return this.fetcher(`search?keyword=${keyword}`)
+    search(keyword: string, page: number = 1) {
+        return this.fetcher(`search?keyword=${keyword}&page=${page}`)
     }
 }
 

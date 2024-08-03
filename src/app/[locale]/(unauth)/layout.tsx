@@ -1,4 +1,4 @@
-import { Antenna, Flame, House, Projector, Tv } from 'lucide-react'
+import { Antenna, Flame, House, Projector, Search, Tv } from 'lucide-react'
 import Link from 'next/link'
 import { useTranslations } from 'next-intl'
 import { unstable_setRequestLocale } from 'next-intl/server'
@@ -46,6 +46,18 @@ export default function Layout(props: {
                             <Link href="/" className="border-none">
                                 <House className="mr-2 size-4" />
                                 {t('home_link')}
+                            </Link>
+                        </Button>
+                    </li>
+                    <li>
+                        <Button
+                            asChild
+                            variant="secondary"
+                            className="w-full justify-start"
+                        >
+                            <Link href="/search" className="border-none">
+                                <Search className="mr-2 size-4" />
+                                {t('search_link')}
                             </Link>
                         </Button>
                     </li>

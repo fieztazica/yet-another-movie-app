@@ -21,7 +21,7 @@ const BaseTemplate = (props: {
 
     return (
         <div className="w-full">
-            <div className="mx-auto min-h-screen">
+            <div className="mx-auto flex min-h-screen flex-col">
                 <header className="border-b p-2 text-center">
                     <div className="flex justify-between">
                         <nav>
@@ -49,7 +49,7 @@ const BaseTemplate = (props: {
                         </nav>
                     </div>
                 </header>
-                <div className="flex h-full">
+                <div className="flex flex-1">
                     <Transition show={openSidebar}>
                         <TransitionChild
                             enter="transition ease-in-out duration-300 transform"
@@ -61,7 +61,7 @@ const BaseTemplate = (props: {
                         >
                             <aside
                                 className={cn(
-                                    'bg-primary-foreground text-primary p-2 border-r min-w-64'
+                                    'bg-primary-foreground text-primary p-2 border-r min-w-64 min-h-full'
                                 )}
                             >
                                 <ul
