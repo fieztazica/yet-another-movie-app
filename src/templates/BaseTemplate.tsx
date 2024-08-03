@@ -1,7 +1,11 @@
+/* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
+/* eslint-disable jsx-a11y/click-events-have-key-events */
+
 'use client'
 
 import { Transition, TransitionChild } from '@headlessui/react'
 import { PanelLeftClose, PanelLeftOpen } from 'lucide-react'
+import { Fragment } from 'react'
 
 import { SearchDialog } from '@/components/SearchDialog'
 import { Button } from '@/components/ui/button'
@@ -15,7 +19,7 @@ const BaseTemplate = (props: {
     sideBar?: React.ReactNode
     children: React.ReactNode
 }) => {
-    const { openSidebar, toggleOpenSidebar, isDesktop } = useSidebar()
+    const { openSidebar, toggleOpenSidebar, isDesktop, ref } = useSidebar()
 
     const OpenSideBarIcon = openSidebar ? PanelLeftClose : PanelLeftOpen
 
@@ -49,8 +53,11 @@ const BaseTemplate = (props: {
                         </nav>
                     </div>
                 </header>
-                <div className="flex flex-1">
-                    <Transition show={openSidebar}>
+                <div className={cn('flex flex-1', !isDesktop && 'relative')}>
+                    <Transition show={openSidebar} as={Fragment}>
+                        {!isDesktop && (
+                            <div className="absolute inset-0 z-50 bg-black/50" />
+                        )}
                         <TransitionChild
                             enter="transition ease-in-out duration-300 transform"
                             enterFrom="-translate-x-full opacity-0"
@@ -60,7 +67,9 @@ const BaseTemplate = (props: {
                             leaveTo="-translate-x-full opacity-0"
                         >
                             <aside
+                                ref={ref}
                                 className={cn(
+                                    !isDesktop && 'absolute z-50',
                                     'bg-primary-foreground text-primary p-2 border-r min-w-64 min-h-full'
                                 )}
                             >
@@ -68,6 +77,9 @@ const BaseTemplate = (props: {
                                     className={cn(
                                         'gap-2 space-y-2 sticky top-2'
                                     )}
+                                    onClick={() =>
+                                        !isDesktop && toggleOpenSidebar()
+                                    }
                                 >
                                     {props.sideBar}
                                 </ul>

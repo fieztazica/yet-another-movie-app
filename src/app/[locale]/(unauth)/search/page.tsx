@@ -7,6 +7,7 @@ import filmsApi from '@/libs/Films'
 
 import SearchInputForm from './form'
 import Paginate from './paginate'
+import { cn } from '@/utils'
 
 type Props = {
     searchParams: { [key: string]: string | string[] | undefined }
@@ -95,7 +96,7 @@ async function SearchPage({ searchParams, params }: Props) {
 
     return (
         <>
-            <div className="sticky top-0 z-50 p-4">
+            <div className="sticky top-0 z-40 p-4">
                 <SearchInputForm />
             </div>
             {films?.status === 'error' && (
@@ -107,20 +108,23 @@ async function SearchPage({ searchParams, params }: Props) {
                     {t('no_results')}
                 </p>
             )}
-            {films?.items?.map((item) => (
+            {films?.items?.map((item, i) => (
                 <div
                     key={item.slug}
-                    className="group transition-all hover:bg-primary-foreground"
+                    className={cn(
+                        'group transition-all hover:bg-muted',
+                        i % 2 === 0 && 'bg-muted/50'
+                    )}
                 >
                     <Link href={`/watch/${item.slug}`}>
-                        <div className="flex w-full">
+                        <div className="flex w-full text-sm md:text-base">
                             <img
                                 src={item.thumb_url}
                                 alt={item.name}
-                                className="max-w-32 brightness-90 group-hover:brightness-100 group-hover:drop-shadow"
+                                className="max-h-32 md:max-h-full max-w-32 brightness-90 group-hover:brightness-100 group-hover:drop-shadow"
                             />
                             <div className="ml-2 flex-1 font-medium">
-                                <div className="text-xl font-bold">
+                                <div className="text-lg md:text-xl font-semibold md:font-bold">
                                     {item.name} ({item.original_name})
                                 </div>
                                 <div>
